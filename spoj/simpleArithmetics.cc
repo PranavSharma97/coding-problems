@@ -41,7 +41,6 @@ int main()
         ca=a;
         cb=b;
         int tempCarry=0;
-//         string carry(1000,'0');
         string prod(1000,'0'),sum(510,'0'),diff(510,'0');
         vector<int> carry(1000,0);
         vector<vector <int> > res(500,vector<int>(1000,-1));
@@ -66,26 +65,18 @@ int main()
                     }
                     
                     int rem = (x*y+tempCarry)%10;
-//                     cout<<rem;
                     tempCarry = (x*y+tempCarry)/10;
                     string temp = to_string(tempCarry);
                     
                     if(j==a.length()-1 && tempCarry!=0)
                     {
-//                         cout<<temp[0];
                         prod[i+j+1] = temp[0];
                         res[i][i+j+1] = temp[0]-48;
-//                         cout<<res[i][j+1]<<endl;
                     }
-                    
-//                    carry[i+j+2] = to_string(((prod[i+j] - 96 + rem + carry[i+j])/10 + carry[i+j+1] - 48)/10)[0];
-                    
-//                     carry[i+j+1] = to_string(((prod[i+j] - 96 + rem + carry[i+j])/10 + carry[i+j+1] - 48)%10)[0];
                     
                     carry[i+j+1] = (prod[i+j] - 48 + rem + carry[i+j])/10 + carry[i+j+1];
                     
                     prod[i+j] = to_string((prod[i+j] - 48 + rem + carry[i+j])%10)[0];
-//                     carry[i+j] = '0';
                     carry[i+j] = 0;
                     if(j==a.length()-1 && i==b.length()-1)
                     {
@@ -99,21 +90,10 @@ int main()
                     res[i][j+i] = rem;                
                 }
                 tempCarry=0;
-//                 cout<<endl;
             }
             
             reverse(prod.begin(),prod.end());
             prod.erase(0, min(prod.find_first_not_of('0'), prod.size()-1));
-//            cout<<prod<<endl;
-            
-//              for(int i=0; i<b.length(); i++)
-//             {
-//                 for(int j=0; j<prod.length(); j++)
-//                 {
-//                     cout<<res[i][j];
-//                 }
-//                 cout<<endl;
-//             }
             cb.insert(0,"*");
             int m = max(ca.length(),cb.length());
             int f = max(m,prod.length());
