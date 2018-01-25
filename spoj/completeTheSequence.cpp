@@ -28,10 +28,6 @@ int main()
         
         mainY.push_back(y);
         interPolate(x,y);
-//         for(int i=0; i<coeff.size(); i++)
-//         {
-//             cout<<coeff[i]<<endl;
-//         }
         
         for(int i=0; i<c; i++)
         {
@@ -61,44 +57,6 @@ int main()
             }
         }
         
-        int res;
-        int flag=0;
-        int deg,j;
-        
-//         for(j=0; j<s; j++)            
-//         {
-//             for(int k=1; k<=x.size(); k++)
-//             {
-//                 res = eval(coeff, x, k, j);
-//                 if(res!=x[k-1])
-//                 {
-//                     flag=1;
-//                     break;
-//                 }
-//             }
-//             
-//             if(flag!=1)
-//             {
-//                 deg = j;
-//                 break;
-//             }
-//             
-//         }
-            
-//         cout<<j<<endl;
-//         for(int i=1; i<=c; i++)
-//         {
-//             cout<<(int)eval(coeff, x, s+i, j);
-//             if(i!=c)
-//             {
-//                 cout<<" ";
-//             }
-//             else
-//             {
-//                 cout<<endl;
-//             }
-//         }
-        
         coeff.clear();
         mainY.clear();
         counterDd=0;
@@ -123,14 +81,11 @@ void interPolate(vector<int> x, vector<int> y)
     
         vector<int> newY;
         int tempY;
-        int tempCounter = counterEvenDd;
         
         for(int i=0; i<y.size()-1; i++)
         {
-//             tempY = (y[i+1] - y[i])/(x[tempCounter] - x[tempCounter - 1]);
             tempY = (y[i+1] - y[i]);
             newY.push_back(tempY);
-            tempCounter++;
         }
         
         int flag=0;
@@ -157,14 +112,11 @@ void interPolate(vector<int> x, vector<int> y)
     {
         vector<int> newY;
         int tempY;
-        int tempCounter = counterDd;
         
         for(int i=0; i<y.size()-1; i++)
         {
-//             tempY = (y[i+1] - y[i])/(x[tempCounter + 1] - x[tempCounter - 1]);
             tempY = (y[i+1] - y[i]);
             newY.push_back(tempY);
-            tempCounter++;
         }
         
         int flag=0;
