@@ -10,7 +10,6 @@ int main()
         int evenLimit,oddLimit,evenWorkers=0,oddWorkers=0,total=0;
         string workerMonths;
         scanf("%d %d %d %d", &n, &m, &x, &k);
-//         scanf("%s", &workerMonths);
         cin>>workerMonths;
         
         evenLimit = (m/2)*x;
